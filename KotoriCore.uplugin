@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "KotoriCore",
+	"Description": "Core",
+	"Category": "Kotori",
+	"CreatedBy": "Kotori",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "KotoriCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}
