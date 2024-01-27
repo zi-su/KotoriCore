@@ -13,22 +13,10 @@ DECLARE_DELEGATE_OneParam(FKtrStreamableDelegate, const TArray<UObject*>&);
  * 独自のアセット読み込みマネージャ
  */
 UCLASS()
-class KOTORICORE_API UKtrStreamableManager : public UGameInstanceSubsystem, public FTickableGameObject
+class KOTORICORE_API UKtrStreamableManager : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 
 public:
-	TSharedPtr<FStreamableHandle> RequestSyncLoad(const TArray<FSoftObjectPath>& Path, const FKtrStreamableDelegate& OnComplete = FKtrStreamableDelegate());
-	TSharedPtr<FStreamableHandle> RequestAsyncLoad(const TArray<FSoftObjectPath>& Path, const FKtrStreamableDelegate& OnComplete = FKtrStreamableDelegate());
-
-	virtual TStatId GetStatId() const override{ RETURN_QUICK_DECLARE_CYCLE_STAT(UKtrStreamableManager, STATGROUP_Tickables); };
-	virtual void Tick(float DeltaTime) override;
-
-private:
-	struct KtrHandle
-	{
-		TSharedPtr<FStreamableHandle> StreamableHandle;
-		FKtrStreamableDelegate OnComplete;
-	};
-	TArray<KtrHandle> KtrHandles;
+	static TSharedPtr<FStreamableHandle> RequestAsyncLoad(const TArray<FSoftObjectPath>& Path, const FKtrStreamableDelegate& OnComplete = FKtrStreamableDelegate());
 };
